@@ -1,0 +1,10 @@
+gradlew
+gradlew.bat
+gradle.properties
+
+
+.gradle
+.idea
+out
+build
+run
