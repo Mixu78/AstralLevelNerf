@@ -17,7 +17,7 @@ plugins {
 apply plugin: 'net.minecraftforge.gradle'
 
 group = 'mixu'
-version = '1.0.0'
+version = '1.0.1'
 archivesBaseName = 'astral-level-nerf'
 
 sourceCompatibility = targetCompatibility = compileJava.sourceCompatibility = compileJava.targetCompatibility = '1.8'
