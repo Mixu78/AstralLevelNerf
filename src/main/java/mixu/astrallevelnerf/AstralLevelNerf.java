@@ -51,8 +51,8 @@ public class AstralLevelNerf {
     @SuppressWarnings("unused")
     public static long getExpRequired(int i, long prev) {
         String replacedFormula = AstralLevelNerfConfig.levelFormula
-                .replaceAll("lvl", Integer.toString(i))
-                .replaceAll("prev", Double.toString(prev));
+                .replaceAll("(\\W?)i(\\W?)", "$1"+ i +"$2")
+                .replaceAll("(\\W?)prev(\\W?)", "$1" + prev + "$1");
 
         try {
             return evaluator.evaluate(replacedFormula).longValue();
@@ -70,8 +70,8 @@ public class AstralLevelNerf {
         @Config.Name("level_formula")
         @Config.Comment(
             "The formula to use when calculating xp required." +
-            "You can use \"lvl\" for the current level and \"prev\" for the previous levels xp"
+            "You can use \"i\" for the current level and \"prev\" for the previous levels xp"
         )
-        public static String levelFormula = "prev + 150 + floor(2^(lvl/2+3))";
+        public static String levelFormula = "prev + 150 + floor(2^(i/2+3))";
     }
 }
