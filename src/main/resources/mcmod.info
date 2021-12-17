@@ -3,7 +3,7 @@
     "modid": "astral-level-nerf",
     "name": "Astral Level Nerf",
     "description": "Makes astral level xp requirements not be so huge at higher levels.",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "mcversion": "${mcversion}",
     "url": "",
     "updateUrl": "",

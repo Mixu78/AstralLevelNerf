@@ -23,7 +23,7 @@ public class AstralLevelNerf {
 
     public static final String MODID = "astral-level-nerf";
     public static final String MODNAME = "Astral Level Nerf";
-    public static final String VERSION = "1.0.0";
+    public static final String VERSION = "1.0.1";
 
     public static Logger logger;
 
@@ -50,10 +50,9 @@ public class AstralLevelNerf {
 
     @SuppressWarnings("unused")
     public static long getExpRequired(int i, long prev) {
-        String formula = AstralLevelNerfConfig.levelFormula.replaceAll("i", Integer.toString(i));
-        String replacedFormula = formula
-                .replaceAll("i", Integer.toString(i))
-                .replaceAll("prev", Double.toString(prev));
+        String replacedFormula = AstralLevelNerfConfig.levelFormula
+                .replaceAll("(\\W?)i(\\W?)", "$1"+ i +"$2")
+                .replaceAll("(\\W?)prev(\\W?)", "$1" + prev + "$1");
 
         try {
             return evaluator.evaluate(replacedFormula).longValue();
